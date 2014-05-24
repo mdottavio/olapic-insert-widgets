@@ -1,17 +1,29 @@
 {
    "background": {
-      "scripts": [ "background.js", "app/libs/jquery.1.11.1.min.js", "app/libs/jquery.eltree.js", "app/start.js" ]
+      "scripts": [ 
+         "background.js"
+      ]
    },
 
+   "content_scripts": [
+      {
+         "matches" : [
+            "http://*/*",
+            "https://*/*"
+         ],
+         "js" : [ "client/front-client.js"]
+      }
+   ],
+
    "browser_action": {
-      "default_icon": "icon-128-off.png",
+      "default_icon": "images/icon-128-off.png",
       "default_title": "GA Debug: OFF"
    },
    "description": "Insert a widget on the page.",
    "icons": {
-      "128": "icon-128.png",
-      "16": "icon-16.png",
-      "38": "icon-38.png"
+      "128": "images/icon-128.png",
+      "16": "images/icon-16.png",
+      "38": "images/icon-38.png"
    },
    "name": "__MSG_appName__",
    "version": "0.0.1",
