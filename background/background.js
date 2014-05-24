@@ -1,6 +1,6 @@
 Olapic = {
     init: function() {
-
+        Olapic.listener();
     },
     set: function(url, data) {
         localStorage[url] = data;
