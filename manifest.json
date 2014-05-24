@@ -12,7 +12,7 @@
             "https://*/*"
          ],
          "css" : [ "client/styles.css" ],
-         "js" : [ "app/jquery.1.11.1.min.js", "app/jquery.eltree.js", "client/front-client.js"]
+         "js" : [ "app/jquery.min.js", "app/jquery.eltree.js", "client/front-client.js"]
       }
    ],
 

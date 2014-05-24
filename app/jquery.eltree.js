@@ -20,8 +20,7 @@
         this.element = element;
 
         this.options = $.extend( {}, defaults, options) ;
-        console.log(this.options );
-        
+
         this._defaults = defaults;
         this._name = pluginName;
 		
@@ -35,55 +34,14 @@
 			$this = this;
 			
 		//now we'll add those logger functions
-		obj.addClass("olapicDebugging").click(function(event){
+		obj.addClass("olapicDebugging").on('click', function(event){
 			event.preventDefault(); // so links wont be opened while debugging
+            obj.removeClass("olapicDebugging");
+            obj.off('click');
 			$this.options.click( event.target ); //and let's add this to our logger spans
 		});
     };
 	
-	function selectors(elem) {
-		var css = "",
-			continueCss = 1,
-			js = "",
-			parent = "",
-			ret = new Array();
-			
-		while (elem !== window.document) {
-			parent = elem.parentNode;
-
-			//js selector
-			x=0;
-			while(  ( $(parent.childNodes[x])[0] !== elem ) && (x < parent.childNodes.length) ) {
-				x++;
-			}
-			//now we have our childNode!
-			js = x + "," + js;
-			
-			//CSS selector
-			if (continueCss) {
-				if(elem.id) {
-					css = elem.nodeName + '#' + elem.id + " " + css;
-					continueCss = 0;
-				} else if(elem.className) {
-					css = elem.nodeName + '.' + elem.className + " " + css;
-				} else {
-					css = elem.nodeName + " " + css;
-				}
-			}
-			//let's go up one level
-			elem = elem.parentNode;
-		}
-		//let's make our js selector useful
-		js = (js.slice(0, -1)).split(",");
-		for(x=0; x< js.length; x++) {
-			js[x] = "childNodes[" + js[x] + "]";
-		}
-		js = "window. document. " + js.join(". ");
-		
-		ret[0] = css.toLowerCase(); //css
-		ret[1] = js; //js
-		return ret;
-	}
     // A really lightweight plugin wrapper around the constructor, preventing against multiple instantiations
     $.fn[pluginName] = function ( options ) {
         return this.each(function () {
