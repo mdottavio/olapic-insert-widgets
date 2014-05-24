@@ -57,5 +57,15 @@
         }
     });
 
+    var getMessage = {
+        op : 2,
+        data : {
+            action : 'get', //get
+            href : 'window.location.href'
+        }
+    };
+    chrome.runtime.sendMessage(getMessage, function(response) {
+        console.log(response);
+    });
 
 })(window, document)
