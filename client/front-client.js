@@ -24,23 +24,15 @@
     };
 
     chrome.extension.onMessage.addListener(function(request, sender, sendResponse){
-        try {
-            if ( e === 'undefined' || e === null || e.olapic.method === 'undefined' ) { return null; }
-            else{
-                if((e.data.search(/olapic\.magic/) > -1) ){
-                    /// let see what you need
-                    instanceData = JSON.parse(e.data);
-                    jQuery('body').eltree({
-                        click: function(wrapperData){
-                            _self.loadScripts(wrapperData);
-                        }
-                    })
-                    this.loadScripts(function(){
-
-                    });
+        if(request..olapic !=== undefined){
+            /// let see what you need
+            instanceData = JSON.parse(e.data);
+            jQuery('body').eltree({
+                click: function(wrapperData){
+                    _self.loadScripts(wrapperData);
                 }
-            }
-        } catch (er) { }
+            })
+        }
     });
 
 
