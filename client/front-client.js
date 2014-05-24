@@ -10,14 +10,29 @@
     msgResponds = function(){
         jQuery('body').eltree({
             click: function(wrapperData){
-                var theID = 'olapicTemp';
+                var theID = 'olapicTemp',
+                    theWrapper = eval(wrapperData[1]),
+                    saveMessage = {};
 
-                if( $(wrapperData).attr('id') == ''){
-                    $(wrapperData).attr('id', theID);
+                if( $(theWrapper).attr('id') == '' || $(theWrapper).attr('id') == undefined){
+                    $(theWrapper).attr('id', theID);
                 } else {
-                    theID = $(wrapperData).attr('id');
+                    theID = $(theWrapper).attr('id');
                 }
                 _self.loadScripts(theID);
+                saveMessage = {
+                    op : 2,
+                    data : {
+                        action : 'set', //get
+                        href : 'window.location.href',
+                        info : {
+                            'wrapperData' : wrapperData
+                        }
+                    }
+                };
+                chrome.runtime.sendMessage(saveMessage, function(response) {
+                    console.log('Guardado');
+                });
             }
         })
     };
