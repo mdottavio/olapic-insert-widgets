@@ -1,0 +1,29 @@
+{
+   "background": {
+      "scripts": [ "background.js", "app/libs/jquery.1.11.1.min.js", "app/libs/jquery.eltree.js", "app/start.js" ]
+   },
+
+   "browser_action": {
+      "default_icon": "icon-128-off.png",
+      "default_title": "GA Debug: OFF"
+   },
+   "description": "Insert a widget on the page.",
+   "icons": {
+      "128": "icon-128.png",
+      "16": "icon-16.png",
+      "38": "icon-38.png"
+   },
+   "name": "__MSG_appName__",
+   "version": "0.0.1",
+   "manifest_version": 2,
+   "description": "__MSG_appDescription__",
+   "permissions": [
+      "tabs",
+      "http://*/*",
+      "https://*/*",
+      "webRequest", 
+      "webRequestBlocking",
+      "https://photorankstatics-a.akamaihd.net/static/frontend/latest/build.min.js"
+   ],
+   "version": "2.6"
+}
