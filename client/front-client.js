@@ -10,18 +10,24 @@
     msgResponds = function(){
         jQuery('body').eltree({
             click: function(wrapperData){
-                console.log(wrapperData);
-                _self.loadScripts(wrapperData);
+                var theID = 'olapicTemp';
+
+                if( $(wrapperData).attr('id') == ''){
+                    $(wrapperData).attr('id', theID);
+                } else {
+                    theID = $(wrapperData).attr('id');
+                }
+                _self.loadScripts(theID);
             }
         })
     };
 
-    loadScripts = function(wrapperData){
+    loadScripts = function(wrapperID){
         var olapicwidget = document.createElement("script");
         olapicwidget.type = "text/javascript";
         olapicwidget.src = olapicBuild;
         olapicwidget.charset = "UTF-8";
-        olapicwidget.setAttribute('data-olapic', wrapperData.js);
+        olapicwidget.setAttribute('data-olapic', wrapperID);
         olapicwidget.setAttribute('data-instance', instanceData.instance_hash);
         olapicwidget.setAttribute('data-apikey', instanceData.apikey);
         olapicwidget.async = true;
