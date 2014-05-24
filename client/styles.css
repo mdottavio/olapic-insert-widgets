@@ -1,0 +1,8 @@
+ .olapicDebugging *:hover {
+    cursor: pointer;
+    -moz-box-shadow: 0 0 5px #FF0000;
+    -webkit-box-shadow: 0 0 5px #FF0000;
+    box-shadow: 0 0 5px #FF0000;
+    _border:1px solid red;
+    _margin: -1px 0 0 -1px;
+ }

@@ -11,13 +11,14 @@
             "http://*/*",
             "https://*/*"
          ],
-         "js" : [ "client/front-client.js"]
+         "css" : [ "client/styles.css" ],
+         "js" : [ "app/jquery.1.11.1.min.js", "app/jquery.eltree.js", "client/front-client.js"]
       }
    ],
 
    "browser_action": {
-      "default_icon": "images/icon-128-off.png",
-      "default_title": "GA Debug: OFF",
+      "default_icon": "images/icon-128.png",
+      "default_title": "Olapic",
       "default_popup": "popup/popup.html"
    },
    "description": "Insert a widget on the page.",

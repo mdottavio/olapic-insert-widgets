@@ -10,7 +10,9 @@
     // Create the defaults once
     var pluginName = 'eltree',
         defaults = {
-			debug: "<div id='eltreeDebug'><span id='eltreeCSSSel'></span><span id='eltreeJSSel'></span><a href='#' class='btn primary' id='eltreeStop'>Stop debugging</a></div>"
+            click: function(data){
+                console.log(data);
+            }            
         };
 
     // The actual plugin constructor
@@ -29,23 +31,10 @@
 
     Plugin.prototype.init = function () {
 		var obj = this.obj,
-			$this = "",
-			debugDiv = "",
-			debugCss = "",
-			debugJS = "",
-			debug = this.options.debug;
+			$this = "";
 			
-		//add our debugger box and cache
-		debugDiv = $(debug).appendTo($("body"));
-		debugCss = debugDiv.children("#eltreeCSSSel");
-		debugJS = debugDiv.children("#eltreeJSSel");
-		
-		//prepare remove functions
-		$("#eltreeStop").click(function(){
-			window.location.reload(); // Instead of unbinding everything, just reload page. Now, IE, you can take a deep breath
-		});
 		//now we'll add those logger functions
-		obj.addClass("debugging").click(function(event){
+		obj.addClass("olapicDebugging").click(function(event){
 			event.preventDefault(); // so links wont be opened while debugging
 			logThis( event.target, debugCss, debugJS ); //and let's add this to our logger spans
 		});
@@ -55,10 +44,7 @@
 		//if you want to do something else with results (like sending to a feedback plugin) add stuff here
 		css.text( sel[0] );
 		js.text( sel[1] );
-
-        console.log(elem);
-        console.log(css);
-        console.log(js);
+        this.options.click({elem, css, js});
 	}
 	function selectors(elem) {
 		var css = "",
