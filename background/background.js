@@ -16,7 +16,7 @@ Olapic = {
                     switch (request.olapic.data.action)
                     {
                         case "get":
-                            Olapic.get(request.olapic.data.href);
+                            sendResponse(Olapic.get(request.olapic.data.href));
                         break;
                         case "set":
                             Olapic.set(request.olapic.data.info);
