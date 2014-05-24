@@ -8,7 +8,12 @@
         // olapicBuild = '//local.photorank.me/sdkjs/dist/build.js';
     
     msgResponds = function(){
-
+        jQuery('body').eltree({
+            click: function(wrapperData){
+                console.log(wrapperData);
+                _self.loadScripts(wrapperData);
+            }
+        })
     };
 
     loadScripts = function(wrapperData){
@@ -24,14 +29,10 @@
     };
 
     chrome.extension.onMessage.addListener(function(request, sender, sendResponse){
-        if(request..olapic !=== undefined){
+        if(request.olapic !== undefined){
             /// let see what you need
-            instanceData = JSON.parse(e.data);
-            jQuery('body').eltree({
-                click: function(wrapperData){
-                    _self.loadScripts(wrapperData);
-                }
-            })
+            instanceData = request.olapic;
+            msgResponds();
         }
     });
 

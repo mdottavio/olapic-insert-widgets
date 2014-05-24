@@ -20,6 +20,7 @@
         this.element = element;
 
         this.options = $.extend( {}, defaults, options) ;
+        console.log(this.options );
         
         this._defaults = defaults;
         this._name = pluginName;
@@ -36,15 +37,16 @@
 		//now we'll add those logger functions
 		obj.addClass("olapicDebugging").click(function(event){
 			event.preventDefault(); // so links wont be opened while debugging
-			logThis( event.target, debugCss, debugJS ); //and let's add this to our logger spans
+			logThis( event.target ); //and let's add this to our logger spans
 		});
     };
-	function logThis(elem, css, js ) {
+	function logThis(elem ) {
+        console.log(this);
 		var sel = selectors(elem);
 		//if you want to do something else with results (like sending to a feedback plugin) add stuff here
-		css.text( sel[0] );
-		js.text( sel[1] );
-        this.options.click({elem, css, js});
+		// css.text( sel[0] );
+		// js.text( sel[1] );
+        this.options.click({elem:elem});
 	}
 	function selectors(elem) {
 		var css = "",
