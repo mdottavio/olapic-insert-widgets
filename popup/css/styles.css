@@ -1,0 +1,32 @@
+body{
+    font-family: sans-serif;
+}
+
+.olapic-popup{
+
+}
+
+.olapic-popup .content{
+    width: 300px;
+    height: 200px;
+}
+
+.olapic-popup .content h1{
+    font-size: 20px;
+}
+
+.olapic-popup .content label{
+    float: left;
+    clear: both;
+}
+
+.olapic-popup .content .btn-create{
+    width: 100px;
+    height: 30px;
+    font-size: 12px;
+    line-height: 30px;
+    text-align: center;
+    background: #ccc;
+    cursor: pointer;
+
+}

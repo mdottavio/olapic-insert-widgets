@@ -17,7 +17,8 @@
 
    "browser_action": {
       "default_icon": "images/icon-128-off.png",
-      "default_title": "GA Debug: OFF"
+      "default_title": "GA Debug: OFF",
+      "default_popup": "popup/popup.html"
    },
    "description": "Insert a widget on the page.",
    "icons": {
