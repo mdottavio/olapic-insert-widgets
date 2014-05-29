@@ -4,27 +4,35 @@ Olapic = {
         Olapic.listener();
     },
     set: function(url, data) {
-        console.log('guada')
-        localStorage[url] = data;
+        localStorage[url] = JSON.stringify( data );
     },
     get: function(url) {
-        return localStorage[url];
+        return JSON.parse(localStorage[url]);
     },
     listener: function() {
         chrome.runtime.onMessage.addListener(
             function(request, sender, sendResponse) {
-                console.log(request)
                 if(request.op  === 2) {
                     switch (request.data.action)
                     {
                         case "get":
-                            sendResponse(Olapic.get(request.data.href));
+                            sendResponse( Olapic.get(request.data.href));
                         break;
                         case "set":
-                            Olapic.set(request.data.href,request.data.info);
+                            sendResponse( Olapic.set(request.data.href,request.data.info) );
                         break;
                     }
-                }   
+                } else if(request.op  === 3) {
+                    chrome.browserAction.setBadgeText({
+                      text: '...'
+                    });
+                    sendResponse( {} );
+                } else if(request.op  === 4) {
+                    chrome.browserAction.setBadgeText({
+                      text: ''
+                    });
+                    sendResponse( {} );
+                }
             }
         );
     }

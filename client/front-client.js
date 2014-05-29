@@ -10,34 +10,43 @@
     msgResponds = function(){
         jQuery('body').eltree({
             click: function(wrapperData){
-                var theID = 'olapicTemp',
-                    theWrapper = eval(wrapperData[1]),
-                    saveMessage = {};
-
-                if( $(theWrapper).attr('id') == '' || $(theWrapper).attr('id') == undefined){
-                    $(theWrapper).attr('id', theID);
-                } else {
-                    theID = $(theWrapper).attr('id');
-                }
-                _self.loadScripts(theID);
-                saveMessage = {
-                    op : 2,
-                    data : {
-                        action : 'set', //get
-                        href : 'window.location.href',
-                        info : {
-                            'wrapperData' : wrapperData
-                        }
-                    }
-                };
-                chrome.runtime.sendMessage(saveMessage, function(response) {
-                    console.log('Guardado');
-                });
+                _self.renderWidget(wrapperData, instanceData);
             }
         })
     };
 
-    loadScripts = function(wrapperID){
+    renderWidget = function(wrapperData, instanceData){
+        var theID = 'olapicTemp',
+            theWrapper = eval(wrapperData[1]),
+            saveMessage = {};
+
+        chrome.runtime.sendMessage({op:3}, function(response) {
+            if( $(theWrapper).attr('id') == '' || $(theWrapper).attr('id') == undefined){
+                $(theWrapper).attr('id', theID);
+            } else {
+                theID = $(theWrapper).attr('id');
+            }
+            _self.loadScripts(theID, instanceData);
+            saveMessage = {
+                op : 2,
+                data : {
+                    action : 'set', //get
+                    href : window.location.href,
+                    info : {
+                        'wrapperData' : wrapperData,
+                        'instanceData' : instanceData
+                    }
+                }
+            };
+            chrome.runtime.sendMessage(saveMessage, function(response) {
+                chrome.runtime.sendMessage({op:4}, function(response) {});
+            });
+
+        });
+
+    };
+
+    loadScripts = function(wrapperID, instanceData){
         var olapicwidget = document.createElement("script");
         olapicwidget.type = "text/javascript";
         olapicwidget.src = olapicBuild;
@@ -65,7 +74,7 @@
         }
     };
     chrome.runtime.sendMessage(getMessage, function(response) {
-        console.log(response);
+        _self.renderWidget(response.wrapperData, response.instanceData);
     });
 
 })(window, document)
