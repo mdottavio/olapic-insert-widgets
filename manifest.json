@@ -1,7 +1,7 @@
 {
    "background": {
       "scripts": [ 
-         "background.js"
+         "background/background.js"
       ]
    },
 
@@ -32,6 +32,7 @@
    "manifest_version": 2,
    "description": "__MSG_appDescription__",
    "permissions": [
+      "storage",
       "tabs",
       "http://*/*",
       "https://*/*",

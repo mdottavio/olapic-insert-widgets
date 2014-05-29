@@ -61,7 +61,7 @@
         op : 2,
         data : {
             action : 'get', //get
-            href : 'window.location.href'
+            href : window.location.href
         }
     };
     chrome.runtime.sendMessage(getMessage, function(response) {
