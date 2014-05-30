@@ -2,6 +2,10 @@ var Popup = {
     init: function() {
         $("#btn-insert").on('click', function() {
             Popup.send();
+            window.close();
+        });
+        $('#btn-conf').on('click', function() {
+            chrome.tabs.create({'url':chrome.extension.getURL('configs/options/index.html')});
         });
     },
     send: function() {

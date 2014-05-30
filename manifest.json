@@ -19,13 +19,11 @@
    "browser_action": {
       "default_icon": "images/icon-128.png",
       "default_title": "Olapic",
-      "default_popup": "popup/popup.html"
+      "default_popup": "configs/popup/popup.html"
    },
    "description": "Insert a widget on the page.",
    "icons": {
-      "128": "images/icon-128.png",
-      "16": "images/icon-16.png",
-      "38": "images/icon-38.png"
+      "128": "images/icon-128.png"
    },
    "name": "__MSG_appName__",
    "version": "0.0.1",

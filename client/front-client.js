@@ -20,6 +20,8 @@
             theWrapper = eval(wrapperData[1]),
             saveMessage = {};
 
+        if(!theWrapper) return;
+        
         chrome.runtime.sendMessage({op:3}, function(response) {
             if( $(theWrapper).attr('id') == '' || $(theWrapper).attr('id') == undefined){
                 $(theWrapper).attr('id', theID);
