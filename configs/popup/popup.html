@@ -9,11 +9,29 @@
 <body class="olapic-popup">
     <div class="content">
         <div>
-            <input type="text" id="apikey" placeholder="Api key" value="3ce1bf5b8071af8abc36ac5b71888414be2526fec0fd3d3d90c751b0255e009b"></label>
-            <input type="text" id="instance_hash" placeholder="Widget Hash" value="bf8d8fbd7b31d94a364c62304753fc71"></label>
+            <!-- 
+            <div class="input-group input-group-sm apigroup">
+                <input type="text" class="form-control" id="apikey" name="apikey" placeholder="Customer Api key" value="">
+                <span class="input-group-btn">
+                <button class="btn btn-default" type="button" id="search">Search!</button>
+                </span>
+            </div>
+
+            <div class="input-group input-group-sm">
+                <input type="text" class="form-control" id="instance_hash" name="instance_hash" placeholder="Instance hash" value="">
+                <div class="input-group-btn">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Instance <span class="caret"></span></button>
+                <ul class="dropdown-menu pull-right">
+                </ul>
+                </div>
+            </div>
+ -->
+            <input type="text" id="apikey" placeholder="Customer Api key" value="">
+            <input type="text" id="instance_hash" placeholder="Instance hash" value="">
 
             <br />
-            <div class="btn-group">
+            
+            <div class="btn-group opt-buttons">
               <a class="btn btn-default btn-sm" href="#" id="btn-insert"><i class="fa fa-plus"></i> Insert</a>
               <a class="btn btn-default btn-sm" href="#" id="btn-conf"><i class="fa fa-cog"></i> Settings</a>
             </div>
@@ -21,6 +39,7 @@
         </div>
     </div>
     <script type="text/javascript" src="../js/jquery.min.js"></script>
+    <script type="text/javascript" src="../bootstrap/js/bootstrap.js"></script>
     <script type="text/javascript" src="../js/popup.js"></script>
 </body>
 </html>

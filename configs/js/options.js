@@ -18,10 +18,12 @@ var options = {
             x = i = 0;
 
         for (x in localStorage){
-            i ++;
-            obj = JSON.parse(localStorage[x]);
-            theTr = '<tr><td>'+i+'</td><td>'+x+'</td><td>'+obj.instanceData.instance_hash+'</td><td>'+obj.instanceData.apikey+'</td><td><div class="btn-group btn-group-sm"><button type="button" class="btn btn-default btn-remove" rel="'+x+'">Remove</button></div></td></tr>';
-            $('#instancesList tbody').append(theTr);
+            if(x !== 'popupApyKey' && x !== 'popupInstaceHash'){
+                i ++;
+                obj = JSON.parse(localStorage[x]);
+                theTr = '<tr><td>'+i+'</td><td>'+x+'</td><td>'+obj.instanceData.instance_hash+'</td><td>'+obj.instanceData.apikey+'</td><td><div class="btn-group btn-group-sm"><button type="button" class="btn btn-default btn-remove" rel="'+x+'">Remove</button></div></td></tr>';
+                $('#instancesList tbody').append(theTr);
+            }
         }
 
         this.deleteActions();

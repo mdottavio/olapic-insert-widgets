@@ -1,27 +1,21 @@
 body{
     font-family: sans-serif;
 }
-
-.olapic-popup input{
-    margin: 6px;
+.content{
+    padding: 6px;
 }
-.olapic-popup .btn-group{
+
+.olapic-popup .btn-group {
     margin: 6px 28px;
 }
-
+.olapic-popup input {
+    margin: 6px 0px;
+}
 .olapic-popup .content{
-    width: 200px;
+    width: 212px;
     height: 140px;
 }
 
-.olapic-popup .content h1{
-    font-size: 20px;
-}
-
-.olapic-popup .content label{
-    float: left;
-    clear: both;
-}
 
 .olapic-popup .content .btn-create{
     width: 100px;
@@ -33,3 +27,14 @@ body{
     cursor: pointer;
 
 }
+.instances-list .btn{
+    margin: 12px 0px 0px 50px;
+}
+.opt-buttons{
+    position: absolute;
+    bottom: 0px;
+}
+.apigroup{
+    margin-bottom: 6px;
+}
+.apigroup button{ width: 79px; }
