@@ -1,20 +1,26 @@
 <html>
 <head>
     <title></title>
-    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
 </head>
 <body class="olapic-popup">
     <div class="content">
-        <h1>Insert new widget</h1>
         <div>
-            <label>Api key: <input type="text" id="apikey" value="3ce1bf5b8071af8abc36ac5b71888414be2526fec0fd3d3d90c751b0255e009b"></label>
-            <label>Instance: <input type="text" id="instance_hash" value="bf8d8fbd7b31d94a364c62304753fc71"></label>
-            <label><div class="btn-create">Create</div></label>
+            <input type="text" id="apikey" placeholder="Api key" value="3ce1bf5b8071af8abc36ac5b71888414be2526fec0fd3d3d90c751b0255e009b"></label>
+            <input type="text" id="instance_hash" placeholder="Widget Hash" value="bf8d8fbd7b31d94a364c62304753fc71"></label>
+
+            <br />
+            <div class="btn-group">
+              <a class="btn btn-default btn-sm" href="#" id="btn-insert"><i class="fa fa-plus"></i> Insert</a>
+              <a class="btn btn-default btn-sm" href="#" id="btn-conf"><i class="fa fa-cog"></i> Settings</a>
+            </div>
+            <div id="error"></div>
         </div>
     </div>
-
-
-<script type="text/javascript" src="js/jquery.min.js"></script>
-<script type="text/javascript" src="js/popup.js"></script>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/popup.js"></script>
 </body>
 </html>

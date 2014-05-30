@@ -11,7 +11,7 @@
             "http://*/*",
             "https://*/*"
          ],
-         "css" : [ "client/styles.css" ],
+         "css" : [ "client/styles.css"],
          "js" : [ "app/jquery.min.js", "app/jquery.eltree.js", "client/front-client.js"]
       }
    ],

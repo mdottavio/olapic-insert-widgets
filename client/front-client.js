@@ -39,7 +39,7 @@
                 }
             };
             chrome.runtime.sendMessage(saveMessage, function(response) {
-                chrome.runtime.sendMessage({op:4}, function(response) {});
+                chrome.runtime.sendMessage({op:4}, function(response) { });
             });
 
         });
