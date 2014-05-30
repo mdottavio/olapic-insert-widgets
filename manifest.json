@@ -25,10 +25,10 @@
    "icons": {
       "128": "images/icon-128.png"
    },
-   "name": "__MSG_appName__",
+   "name": "Olapic insert widget",
    "version": "0.0.1",
    "manifest_version": 2,
-   "description": "__MSG_appDescription__",
+   "description": "Based on a customer apy key and widget's hash",
    "permissions": [
       "storage",
       "tabs",
